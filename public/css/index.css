@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+header{
+    border-bottom: 1px solid #4ccfff;
+    margin-bottom: 2em;
+}
+
+main{
+    flex-grow: 1;
+    padding: 0.5em;
+}
+
+footer{
+    padding: 1em;
+
+    background-color: gray;
+
+    color: white;
+    font-size: 0.85em;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+
+    cursor: pointer;
+    padding: 0.5em 1em;
+}
+
+.logo__name{
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Righteous', cursive;
+
+    color: #00b8f3;
+}
+.logo__title{
+    font-size: 0.85em;
+    font-weight: bold;
+
+    color: gray;
+}
+
+.group-flex{
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 2em;
+}
+
+.group-btn{
+    display: flex;
+    flex-direction: column;
+    
+    padding: 0.5em;
+    width: fit-content;
+}
+
+.group-btn__label{
+    font-weight: bold;
+    color: gray;
+
+    padding: 0.5em;
+}
+
+.group-btn__btn{
+    outline: none;
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 0.85em;
+
+    padding: 0.5em 1.5em;
+    border-radius: 10px;
+    border: 2px solid transparent
+}
+
+.on{
+    background-color: #72dbff;
+}
+
+.on:active{
+    background-color: #3074ff;
+    color: white;
+    border: 2px solid black;
+}
+
+.off{
+    background-color: #dfdfdf;
+}
+.off:active{
+    background-color: rgb(129, 129, 129);
+    color: white;
+    border: 2px solid black;
+}
+
+input{
+    margin-bottom: 1em;
+}
