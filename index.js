@@ -62,10 +62,55 @@ server.listen(3000, () => {
 })
 
 
+let fanSocket = null
+
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    
+    // identify client: ard or web
+    if(socket.handshake.query.client != "notARD"){
+      fanSocket = socket
+      console.log("arduino connected")
+
+      //get ard status 
+      fanSocket.emit("get-status")
+      
+      //
+      io.emit("fan-connection", {
+        connected : true
+      })
+      fanSocket.on("disconnect", (reason) => {
+        fanSocket = null
+        io.emit("fan-connection", {
+          connected : false
+        })
+      });
+
+      
+    } else {
+      console.log("web controller connected")
+
+      // get the connection of fan to show on the UI
+      if(fanSocket == null){
+        socket.emit("fan-connection", {
+          connected : false
+        })
+      } else {
+        socket.emit("fan-connection", {
+          connected : true
+        })
+      }
+    }
+
+    
+    socket.on("fan-send-server-status", data => {
+      console.log("fan send: " + data)
+      io.emit("server-send-status-of-fan", data)
+    })
 
     socket.on("disconnect", (reason) => {
         console.log(reason)
     });
   });
+
+
+
