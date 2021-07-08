@@ -1,6 +1,6 @@
 html
     head
-        title MIT APP - smart fan
+        title Socket Control Fan
         link(rel='preconnect' href='https://fonts.googleapis.com')
         link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
         link(href='https://fonts.googleapis.com/css2?family=Righteous&display=swap' rel='stylesheet')
@@ -12,6 +12,15 @@ html
                 .logo__name G_Eleven
                 .logo__title Connect everything
         main 
+            h3 Bật / tắt chức năng tự động
+            .group-flex
+                .group-btn 
+                    
+                    button.group-btn__btn.on#sensor-on Bật
+
+                .group-btn 
+                    
+                    button.group-btn__btn.off#sensor-off Tắt
             h3 Điều khiển quạt từ xa
             .group-flex
                 .group-btn 
@@ -21,26 +30,14 @@ html
                 .group-btn 
                     
                     button.group-btn__btn.off#btn-off Tắt
-            
-            h3 Bật tắt chức năng cảm biến
+            h3 Hẹn giờ quạt tắt (giây)
             .group-flex
                 .group-btn 
-                    
-                    button.group-btn__btn.on#sensor-on Bật
-
-                .group-btn 
-                    
-                    button.group-btn__btn.off#sensor-off Tắt
-            
-            h3 Hẹn giờ quạt tắt (giờ)
-            .group-flex
-                .group-btn 
-                    input(type="number", name="", min="1", max="24", value="1")#input
-                    button.group-btn__btn.on#timing Hẹn
-
-            h3 Tình trạng quạt:
-            
-            div#fan-cn
+                    input(type="number", name="", min="1", max="86400", value="1")#input
+                    button.group-btn__btn.on#timing Hẹn    
+            div.status-fan
+                h3 Tình trạng quạt
+                div#fan-cn
         footer
             p Developed by Group 11 IoT Ton Duc Thang 
             small Le Anh Hao ft Giang Phi Pham
